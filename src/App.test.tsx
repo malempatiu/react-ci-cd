@@ -5,7 +5,7 @@ describe('App', () => {
   it('renders headline', () => {
     render(<App  />);
 
-    const counter = screen.getByRole('button', {name: /count is 01/i});
+    const counter = screen.getByRole('button', {name: /count is 0/i});
     expect(counter).toBeInTheDocument();
   });
 });
