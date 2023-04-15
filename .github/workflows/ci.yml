@@ -1,0 +1,19 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - 'develop'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: NodeJS Version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.0'
+      - run: npm ci
+      - run: npm run lint:check
+      - run: npm run test
+        env:
+          CI: true
